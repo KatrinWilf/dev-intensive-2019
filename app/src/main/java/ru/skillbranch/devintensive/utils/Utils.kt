@@ -4,7 +4,7 @@ import androidx.core.text.buildSpannedString
 
 object Utils {
     fun parseFullName(fullName: String?): Pair<String?, String?> {
-        //TODO FIX ME!!!
+
         when (fullName?.trim()) {
             "" -> return null to null
             else -> {
@@ -46,6 +46,7 @@ object Utils {
 
     }
 
+    @Suppress("IMPLICIT_CAST_TO_ANY")
     fun toInitials(firstName: String?, lastName: String?): String? =
 
         when {

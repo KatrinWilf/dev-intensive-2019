@@ -104,18 +104,20 @@ fun Date.humanizeDiff(date: Date = Date()): String {
     }
 }
 
-fun TimeUnits.plural(value: Int):String{
-    return when (this) {
-        TimeUnits.DAY -> Utils.wordInCase(value, "день", "дня", "дней")
-        TimeUnits.MINUTE -> Utils.wordInCase(value, "минута", "минуты", "минут")
-        TimeUnits.HOUR -> Utils.wordInCase(value, "час", "часа", "часов")
-        TimeUnits.SECOND -> Utils.wordInCase(value, "секунда", "секунды", "секунд")
-    }
-}
 
 enum class TimeUnits {
     SECOND,
     MINUTE,
     HOUR,
-    DAY
+    DAY;
+
+    //companion object {
+        fun plural(value: Int): String = when (this) {
+            DAY -> Utils.wordInCase(value, "день", "дня", "дней")
+            MINUTE -> Utils.wordInCase(value, "минута", "минуты", "минут")
+            HOUR -> Utils.wordInCase(value, "час", "часа", "часов")
+            SECOND -> Utils.wordInCase(value, "секунда", "секунды", "секунд")
+        }
+
+    //}
 }

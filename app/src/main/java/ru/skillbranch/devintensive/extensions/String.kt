@@ -1,8 +1,7 @@
 package ru.skillbranch.devintensive.extensions
 
 fun String.truncate(value:Int=16):String{
-   var res:String = ""
-   res = this.substring(0,value)
+   var res:String = this.substring(0,value)
    res = when {this != res -> res.trimEnd()+"..." else ->res }
    return res
 
