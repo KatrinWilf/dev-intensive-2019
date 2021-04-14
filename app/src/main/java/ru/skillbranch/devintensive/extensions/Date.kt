@@ -78,7 +78,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         else -> ""
     }
     return when {
-        date == this -> "сейчас"
+        date == this -> "несколько секунд назад"
         _year > 0 && dateNeg -> "более чем через год"
         _year > 0 && !dateNeg -> "более года назад"
         _month > 0 -> "$txtAfter$_month ${Utils.wordInCase(
@@ -100,7 +100,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             "минуты",
             "минут"
         )} $txtBefore"
-        else -> "сейчас"
+        else -> "несколько секунд назад"
     }
 }
 
