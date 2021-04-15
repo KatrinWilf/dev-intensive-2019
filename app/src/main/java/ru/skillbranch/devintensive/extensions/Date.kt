@@ -74,7 +74,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         else -> ""
     }
     val txtBefore = when {
-        !dateNeg -> "назад"
+        !dateNeg -> " назад"
         else -> ""
     }
     return when {
@@ -86,8 +86,8 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             "месяц",
             "месяца",
             "месяцев"
-        )} $txtBefore"
-        _days > 0 -> "$txtAfter$_days ${Utils.wordInCase(_days, "день", "дня", "дней")} $txtBefore"
+        )}$txtBefore"
+        _days > 0 -> "$txtAfter$_days ${Utils.wordInCase(_days, "день", "дня", "дней")}$txtBefore"
         difInHour > 0 -> "$txtAfter$difInHour ${Utils.wordInCase(
             difInHour.toInt(),
             "час",
@@ -99,7 +99,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             "минута",
             "минуты",
             "минут"
-        )} $txtBefore"
+        )}$txtBefore"
         else -> "несколько секунд назад"
     }
 }
