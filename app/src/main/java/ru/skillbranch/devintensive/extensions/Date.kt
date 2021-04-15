@@ -20,7 +20,7 @@ fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String {
     return dateFormat.format(this)
 }
 
-fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
+fun Date.add(value: Int = 0, units: TimeUnits = TimeUnits.SECOND): Date {
     var time = this.time
 
     time += when (units) {
@@ -28,7 +28,6 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
         TimeUnits.MINUTE -> value * MINUTE
         TimeUnits.HOUR -> value * HOUR
         TimeUnits.DAY -> value * DAY
-        else ->throw AssertionError()
     }
 
     this.time = time
