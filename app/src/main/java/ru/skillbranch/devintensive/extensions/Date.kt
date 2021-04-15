@@ -21,16 +21,26 @@ fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String {
 }
 
 fun Date.add(value: Int = 0, units: TimeUnits = TimeUnits.SECOND): Date {
-    var time = this.time?:0
 
-    time += when (units) {
-        TimeUnits.SECOND -> value * SECOND
-        TimeUnits.MINUTE -> value * MINUTE
-        TimeUnits.HOUR -> value * HOUR
-        TimeUnits.DAY -> value * DAY
-    }
+    this.time +=units.value*value
 
-    this.time = time
+//
+//    when (this) {
+//        null -> this
+//        else -> {
+//            var time:Long = this.time?:0
+//
+//            time += when (units) {
+//                TimeUnits.SECOND -> value * SECOND
+//                TimeUnits.MINUTE -> value * MINUTE
+//                TimeUnits.HOUR -> value * HOUR
+//                TimeUnits.DAY -> value * DAY
+//            }
+//
+//            this.time = time
+//        }
+//    }
+
     return this
 }
 
@@ -104,11 +114,11 @@ fun Date.humanizeDiff(date: Date = Date()): String {
 }
 
 
-enum class TimeUnits {
-    SECOND,
-    MINUTE,
-    HOUR,
-    DAY;
+enum class TimeUnits (val value: Long) {
+    SECOND(1000L),
+    MINUTE(60*SECOND.value),
+    HOUR(60*MINUTE.value),
+    DAY(24*HOUR.value);
 
     //companion object {
         fun plural(value: Int): String = when (this) {

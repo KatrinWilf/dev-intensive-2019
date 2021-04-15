@@ -91,6 +91,12 @@ class ExampleUnitTest {
     fun test_date_add() {
 
         println(Date().add(0, TimeUnits.DAY))
+        println(Date().add(4, TimeUnits.HOUR))
+        println(Date().add(21, TimeUnits.HOUR))
+        println(Date().add(3, TimeUnits.DAY))
+        //var a:Date
+ //       var t = a//.time
+        //print("t")
     }
 
     @Test
