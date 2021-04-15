@@ -105,7 +105,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         )}$txtBefore"
         difInMinute > 0 -> "$txtAfter$difInMinute ${Utils.wordInCase(
             difInMinute.toInt(),
-            "минута",
+            "минуту",
             "минуты",
             "минут"
         )}$txtBefore"
