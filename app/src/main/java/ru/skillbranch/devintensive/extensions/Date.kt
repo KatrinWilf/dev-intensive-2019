@@ -21,7 +21,7 @@ fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String {
 }
 
 fun Date.add(value: Int = 0, units: TimeUnits = TimeUnits.SECOND): Date {
-    var time = this.time
+    var time = this.time?:0
 
     time += when (units) {
         TimeUnits.SECOND -> value * SECOND
