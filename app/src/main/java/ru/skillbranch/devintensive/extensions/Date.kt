@@ -122,10 +122,10 @@ enum class TimeUnits (val value: Long) {
 
     //companion object {
         fun plural(value: Int): String = when (this) {
-            DAY -> Utils.wordInCase(value, "день", "дня", "дней")
-            MINUTE -> Utils.wordInCase(value, "минута", "минуты", "минут")
-            HOUR -> Utils.wordInCase(value, "час", "часа", "часов")
-            SECOND -> Utils.wordInCase(value, "секунда", "секунды", "секунд")
+            DAY -> "$value ${Utils.wordInCase(value, "день", "дня", "дней")}"
+            MINUTE -> "$value ${Utils.wordInCase(value, "минуту", "минуты", "минут")}"
+            HOUR -> "$value ${Utils.wordInCase(value, "час", "часа", "часов")}"
+            SECOND -> "$value ${Utils.wordInCase(value, "секунду", "секунды", "секунд")}"
         }
 
     //}
