@@ -28,6 +28,7 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
         TimeUnits.MINUTE -> value * MINUTE
         TimeUnits.HOUR -> value * HOUR
         TimeUnits.DAY -> value * DAY
+        else ->throw AssertionError()
     }
 
     this.time = time

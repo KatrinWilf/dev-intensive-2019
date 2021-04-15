@@ -88,6 +88,12 @@ class ExampleUnitTest {
     }
 
     @Test
+    fun test_date_add() {
+
+        println(Date().add(0, TimeUnits.DAY))
+    }
+
+    @Test
     fun test_abstract_factory() {
         val user = User.makeUser("Макеев Михаил")
         val txtMessage =
