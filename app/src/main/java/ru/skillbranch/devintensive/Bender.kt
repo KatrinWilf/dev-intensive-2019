@@ -27,11 +27,11 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
                         countFailAnswer = 0
                         status = Status.NORMAL
                         question = Question.NAME
-                        "Это не правильный ответ. Давай все по новой\n${question.question}" to status.color
+                        "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
                     }
                     else -> {
                         status = status.nextStatus()
-                        "Это не правильный ответ!\n${question.question}" to status.color
+                        "Это неправильный ответ!\n${question.question}" to status.color
                     }
                 }
             }
@@ -59,7 +59,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             override fun nextQuestion(): Question = PROFESSION
 
             override fun validateAnswer(answer: String): Pair<Boolean, String> {
-                return if (answer.first().isLowerCase()) {
+                return if (answer.firstOrNull()?.isLowerCase()?:true) {
                     true to "Имя должно начинаться с заглавной буквы"
                 } else {
                     false to ""
@@ -70,7 +70,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             override fun nextQuestion(): Question = MATERIAL
 
             override fun validateAnswer(answer: String): Pair<Boolean, String> {
-                return if (answer.first().isUpperCase()) {
+                return if (answer.firstOrNull()?.isUpperCase()?:true) {
                     true to "Профессия должна начинаться со строчной буквы"
                 } else {
                     false to ""
@@ -82,7 +82,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
 
             override fun validateAnswer(answer: String): Pair<Boolean, String> {
                 return if (answer.contains("""[0-9]+""".toRegex())) {
-                    true to "Материал не должен содержать цифры"
+                    true to "Материал не должен содержать цифр"
                 } else {
                     false to ""
                 }
