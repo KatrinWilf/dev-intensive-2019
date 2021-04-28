@@ -4,10 +4,7 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 
-import android.os.Message
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -16,9 +13,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.skillbranch.devintensive.R.id.iv_bender
-import ru.skillbranch.devintensive.extension.hideKeyboard
-import ru.skillbranch.devintensive.extension.isKeyboardOpen
+import ru.skillbranch.devintensive.extensions.hideKeyboard
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
